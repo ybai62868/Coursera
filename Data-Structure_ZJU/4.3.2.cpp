@@ -15,3 +15,17 @@ MaxHeap Create( int MaxSize )
     H->Elements[0] = MaxData;
     return H;
 }
+
+
+void Insert( MaxHeap H, ElementType item )
+{
+    if ( IsFull(H) ){
+        printf("最大堆已满\n");
+        return;
+    }
+    int i = H->Size++;
+    for ( ;H->Elements[i/2]<item;i/=2 ) {
+        H->Elements[i] = H->Elements[i/2];
+    }
+    H->Elements[i] = item;
+}
